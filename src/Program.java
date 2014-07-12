@@ -36,7 +36,8 @@ public class Program {
 				//Wait for a client to connect
 				while(true){
 					Socket socket = sSocket.accept();
-
+					PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
+					output.println("Welcome!");
 					ClientThread ct = new ClientThread(socket);
 					new Thread(ct).start();
 					
